@@ -102,12 +102,16 @@
     </Content>
     <Content Include="angular.json" />
     <Content Include="package.json" />
+    <Content Include="src\app\contacts\components\components-entry\contact-entry.component.html" />
+    <Content Include="src\app\contacts\components\contacts.component.html" />
     <Content Include="src\assets\.gitkeep" />
     <Content Include="src\browserslist" />
     <Content Include="src\tsconfig.app.json" />
     <Content Include="src\tsconfig.spec.json" />
     <Content Include="src\tslint.json" />
     <Content Include="tslint.json" />
+    <Content Include="src\app\contacts\components\components-entry\contact-entry.component.scss" />
+    <Content Include="src\app\contacts\components\contacts.component.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -130,6 +134,11 @@
   <ItemGroup>
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\contacts\components\components-entry\contact-entry.component.ts" />
+    <TypeScriptCompile Include="src\app\contacts\components\contacts.component.ts" />
+    <TypeScriptCompile Include="src\app\contacts\exceptions\PageNotFoundComponent.ts" />
+    <TypeScriptCompile Include="src\app\contacts\interfaces\contacts.interface.ts" />
+    <TypeScriptCompile Include="src\app\contacts\services\contacts.service.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />
@@ -139,7 +148,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\app\contacts\model\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,0 +1,28 @@
+﻿<br />
+<table>
+    <thead>
+        <tr>
+            <th>Contact ID</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Tel</th>
+            <th>Cell</th>
+            <th>Email</th>
+            <th>Updated Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contactIndex of contacts">
+            <td><a [routerLink]="['/contacts', contactIndex.Id]">{{contactIndex.Id}}  </a></td>
+            <td>{{contactIndex.FirstName}}</td>
+            <td>{{contactIndex.Surname}}</td>
+            <td>{{contactIndex.Tel}}</td>
+            <td>{{contactIndex.Cell}}</td>
+            <td>{{contactIndex.Email}}</td>
+            <td>{{contactIndex.UpdateDate}}</td>
+        </tr>
+        <tr *ngIf="!contacts || contacts.length==0">
+            <td colspan="6">No contact data to display</td>
+        </tr>
+    </tbody>
+</table>
