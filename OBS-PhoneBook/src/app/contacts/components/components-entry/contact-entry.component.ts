@@ -2,6 +2,10 @@
 import { IContact } from '../../interfaces/contacts.interface';
 import { ContactsService } from '../../services/contacts.service';
 import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/retry';
+import 'rxjs/add/operator/retrywhen';
+import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/scan';
 
 @Component({
     selector: 'my-contact',
@@ -18,6 +22,19 @@ export class ContactsAddressEntryComponent implements OnInit {
     ngOnInit() {
         let contactId: number = this._activatedRoute.snapshot.params['Id'];
         this._contactsService.getContactById(contactId)
+            .retryWhen((err) => {
+                //err.delay(1000)
+                return err.scan((retryCount) => {
+                    retryCount += 1;
+                    if (retryCount < 4) {
+                        this.statusMessage = 'Retrying... Attempt # ' + retryCount;
+                        return retryCount;
+                    }
+                    else {
+                        throw (err)
+                    }
+                }, 0).delay(1000)
+            }) //Re-subscribe and retry 3 times if there is an error processing the request
             .subscribe((contactData) => {
                 if (contactData == null) {
                     this.statusMessage =

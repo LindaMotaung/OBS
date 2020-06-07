@@ -13,7 +13,7 @@
     </thead>
     <tbody *ngIf="contacts">
         <tr *ngFor="let contactIndex of contacts">
-            <td><a [routerLink]="['/contacts', contactIndex.Id]">{{contactIndex.ID}}</a></td>
+            <td><a [routerLink]="['/contacts', contactIndex.ID]">{{contactIndex.ID}}</a></td>
             <td>{{contactIndex.FirstName}}</td>
             <td>{{contactIndex.Surname}}</td>
             <td>{{contactIndex.Tel}}</td>
@@ -23,7 +23,7 @@
         </tr>
         <tr *ngIf="!contacts">
             <td colspan="7">
-               {{statusMessage}}
+                <h2 style="color:cadetblue">{{statusMessage}}</h2>
             </td>
         </tr>
         <tr *ngIf="!contacts && contacts.length==0">
