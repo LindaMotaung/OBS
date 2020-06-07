@@ -6,13 +6,15 @@ import { RouterModule, Routes } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './contacts/exceptions/pageNotFound.component';
+import { HomeContactComponent } from './contacts/components/component-home/contacts-home.component';
 import { ContactsComponent } from './contacts/components/contacts.component';
 import { ContactsAddressEntryComponent } from './contacts/components/components-entry/contact-entry.component';
 import { CreateContactComponent } from './contacts/components/components-entry-create/contacts-create.component';
 import { ContactsService } from './contacts/services/contacts.service';
 
 const appRoutes: Routes = [
-    { path: 'home', component: ContactsComponent },
+    //{ path: 'home', component: ContactsComponent },
+    { path: 'home', component: HomeContactComponent },
     { path: 'contacts', component: ContactsComponent },
     { path: 'contacts/:Id', component: ContactsAddressEntryComponent },
     { path: 'create', component: CreateContactComponent },
@@ -23,6 +25,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
       AppComponent,
+      HomeContactComponent,
       ContactsComponent,
       ContactsAddressEntryComponent,
       CreateContactComponent,

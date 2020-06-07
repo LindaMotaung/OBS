@@ -133,10 +133,13 @@
     <Content Include="angular.json" />
     <Content Include="package.json" />
     <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\contacts\components\component-home\contacts-home.component.css" />
+    <Content Include="src\app\contacts\components\component-home\contacts-home.component.html" />
     <Content Include="src\app\contacts\components\components-entry-create\contact-create.component.css" />
     <Content Include="src\app\contacts\components\components-entry\contact-entry.component.html" />
     <Content Include="src\app\contacts\components\contacts.component.html" />
     <Content Include="src\assets\.gitkeep" />
+    <Content Include="src\assets\obs.png" />
     <Content Include="src\browserslist" />
     <Content Include="src\tsconfig.app.json" />
     <Content Include="src\tsconfig.spec.json" />
@@ -257,6 +260,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\contacts\components\component-home\contacts-home.component.ts" />
     <TypeScriptCompile Include="src\app\contacts\components\components-entry-create\contacts-create.component.ts" />
     <TypeScriptCompile Include="src\app\contacts\components\components-entry\contact-entry.component.ts" />
     <TypeScriptCompile Include="src\app\contacts\components\contacts.component.ts" />
