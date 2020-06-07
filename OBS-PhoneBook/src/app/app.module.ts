@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router'
 
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './contacts/exceptions/PageNotFoundComponent';
+import { PageNotFoundComponent } from './contacts/exceptions/pageNotFound.component';
 import { ContactsComponent } from './contacts/components/contacts.component';
 import { ContactsAddressEntryComponent } from './contacts/components/components-entry/contact-entry.component';
 import { ContactsService } from './contacts/services/contacts.service';
@@ -21,9 +21,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
       AppComponent,
-      PageNotFoundComponent,
       ContactsComponent,
-      ContactsAddressEntryComponent
+      ContactsAddressEntryComponent,
+      PageNotFoundComponent
   ],
   imports: [
       BrowserModule,
@@ -33,6 +33,7 @@ const appRoutes: Routes = [
       RouterModule.forRoot(appRoutes)
   ],
   providers: [ContactsService],
-  bootstrap: [ContactsComponent]
+  //bootstrap: [ContactsComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

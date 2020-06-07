@@ -10,10 +10,12 @@ var core_1 = require("@angular/core");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
+require("rxjs/add/Observable/throw");
 var ContactsService = (function () {
     function ContactsService(_http) {
         this._http = _http;
     }
+    //When subscribing to the API, please pass in whatever available port that locall IIS runs the API project in
     ContactsService.prototype.getContacts = function () {
         return this._http.get("http://localhost:52897/api/contacts")
             .map(function (response) { return response.json(); })

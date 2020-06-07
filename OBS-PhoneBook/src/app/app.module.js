@@ -12,7 +12,7 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
-var PageNotFoundComponent_1 = require("./contacts/exceptions/PageNotFoundComponent");
+var pageNotFound_component_1 = require("./contacts/exceptions/pageNotFound.component");
 var contacts_component_1 = require("./contacts/components/contacts.component");
 var contact_entry_component_1 = require("./contacts/components/components-entry/contact-entry.component");
 var contacts_service_1 = require("./contacts/services/contacts.service");
@@ -21,7 +21,7 @@ var appRoutes = [
     { path: 'contacts', component: contacts_component_1.ContactsComponent },
     { path: 'contacts/:Id', component: contact_entry_component_1.ContactsAddressEntryComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', component: PageNotFoundComponent_1.PageNotFoundComponent }
+    { path: '**', component: pageNotFound_component_1.PageNotFoundComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -32,9 +32,9 @@ AppModule = __decorate([
     core_1.NgModule({
         declarations: [
             app_component_1.AppComponent,
-            PageNotFoundComponent_1.PageNotFoundComponent,
             contacts_component_1.ContactsComponent,
-            contact_entry_component_1.ContactsAddressEntryComponent
+            contact_entry_component_1.ContactsAddressEntryComponent,
+            pageNotFound_component_1.PageNotFoundComponent
         ],
         imports: [
             platform_browser_1.BrowserModule,
@@ -44,7 +44,8 @@ AppModule = __decorate([
             router_1.RouterModule.forRoot(appRoutes)
         ],
         providers: [contacts_service_1.ContactsService],
-        bootstrap: [contacts_component_1.ContactsComponent]
+        //bootstrap: [ContactsComponent]
+        bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
 exports.AppModule = AppModule;

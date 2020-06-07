@@ -1,1 +1,41 @@
-﻿
+﻿<table *ngIf="contact">
+    <thead>
+        <tr>
+            <th colspan="2">
+                Contact Details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Contact ID</td>
+            <td>{{contact.ID}}</td>
+        <tr>
+            <td>Contact First Name</td>
+            <td>{{contact.FirstName}}</td>
+        </tr>
+        <tr>
+            <td>Contact Surname</td>
+            <td>{{contact.Surname}}</td>
+        </tr>
+        <tr>
+            <td>Contact Tel</td>
+            <td>{{contact.Tel}}</td>
+        </tr>
+        <tr>
+            <td>Contact Cell</td>
+            <td>{{contact.Cell}}</td>
+        </tr>
+        <tr>
+            <td>Contact Email</td>
+            <td>{{contact.Email}}</td>
+        </tr>
+        <tr>
+            <td>Contact Updated Date</td>
+            <td>{{contact.UpdatedDate}}</td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="!contact">
+    {{statusMessage}}
+</div>
