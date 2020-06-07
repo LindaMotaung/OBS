@@ -12,9 +12,10 @@ require("rxjs/add/operator/retrywhen");
 require("rxjs/add/operator/delay");
 require("rxjs/add/operator/scan");
 var ContactsAddressEntryComponent = (function () {
-    function ContactsAddressEntryComponent(_contactsService, _activatedRoute) {
+    function ContactsAddressEntryComponent(_contactsService, _activatedRoute, _router) {
         this._contactsService = _contactsService;
         this._activatedRoute = _activatedRoute;
+        this._router = _router;
         this.statusMessage = 'Loading data. Please wait...';
     }
     ContactsAddressEntryComponent.prototype.ngOnInit = function () {
@@ -47,6 +48,9 @@ var ContactsAddressEntryComponent = (function () {
                 'Problem with the service. Please try again after sometime';
             console.error(error);
         });
+    };
+    ContactsAddressEntryComponent.prototype.onBackButtonClick = function () {
+        this._router.navigate(['/contacts']);
     };
     return ContactsAddressEntryComponent;
 }());

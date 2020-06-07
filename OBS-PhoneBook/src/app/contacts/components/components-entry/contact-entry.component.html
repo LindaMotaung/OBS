@@ -39,3 +39,9 @@
 <div *ngIf="!contact">
     <h2 style="color:cadetblue">{{statusMessage}}</h2>
 </div>
+<div style="margin-top: 5px">
+    <input  type="button" 
+           class="btn btn-primary"
+           value="Back to Contacts List"
+           (click)="onBackButtonClick()" />
+</div>

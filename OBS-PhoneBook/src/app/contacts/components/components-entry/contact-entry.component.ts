@@ -2,6 +2,7 @@
 import { IContact } from '../../interfaces/contacts.interface';
 import { ContactsService } from '../../services/contacts.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/retry';
 import 'rxjs/add/operator/retrywhen';
 import 'rxjs/add/operator/delay';
@@ -17,7 +18,8 @@ export class ContactsAddressEntryComponent implements OnInit {
     statusMessage: string = 'Loading data. Please wait...';
 
     constructor(private _contactsService: ContactsService,
-        private _activatedRoute: ActivatedRoute) { }
+        private _activatedRoute: ActivatedRoute,
+        private _router: Router) { }
 
     ngOnInit() {
         let contactId: number = this._activatedRoute.snapshot.params['Id'];
@@ -49,5 +51,9 @@ export class ContactsAddressEntryComponent implements OnInit {
                     'Problem with the service. Please try again after sometime';
                 console.error(error);
             });
+    }
+
+    onBackButtonClick(): void {
+        this._router.navigate(['/contacts']);
     }
 }
