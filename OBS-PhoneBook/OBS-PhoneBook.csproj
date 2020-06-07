@@ -269,6 +269,7 @@
     <TypeScriptCompile Include="src\app\contacts\model\contacts.model.ts" />
     <TypeScriptCompile Include="src\app\contacts\services\contacts.service.ts" />
     <TypeScriptCompile Include="src\app\contacts\pipes\contacts-filter.pipe.ts" />
+    <TypeScriptCompile Include="src\app\contacts\services\create-contact-can-deactivate-guard.service.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />

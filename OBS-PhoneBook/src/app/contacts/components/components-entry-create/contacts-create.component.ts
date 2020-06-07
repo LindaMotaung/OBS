@@ -1,7 +1,6 @@
 ﻿import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from "@angular/forms";
-//import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
-//import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 
 @Component({
     selector: 'my-contact-create',
@@ -9,23 +8,25 @@ import { NgForm } from "@angular/forms";
     styleUrls: ['./contact-create.component.css']
 })
 export class CreateContactComponent implements OnInit {
-    //  datePickerColor: Partial<BsDatepickerConfig>;
+    @ViewChild("contactsForm") public createContactForm NgForm;
 
-    //constructor() {
-    //    this.datePickerColor = Object.assign({},
-    //        {
-    //            containerClass: "theme-dark-blue",
-    //            showWeekNumbers: false,
-    //            dateInputFormat: "DD/MM/YYYY"
-    //        });
-    //}
+    datePickerColor: Partial<BsDatepickerConfig>;
+
+    constructor() {
+        this.datePickerColor = (<any>Object).assign({},
+            {
+                containerClass: "theme-dark-blue",
+                showWeekNumbers: false,
+                dateInputFormat: "YYY/MM/DD"
+            });
+    }
 
     ngOnInit() {
 
     }
 
     saveContacts(contactsForm: NgForm): void {
-        // console.log(vehicleForm.value);
+        // console.log(contactsForm.value);
         console.log(contactsForm);
     }
 }

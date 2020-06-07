@@ -12,13 +12,15 @@ import { ContactsAddressEntryComponent } from './contacts/components/components-
 import { CreateContactComponent } from './contacts/components/components-entry-create/contacts-create.component';
 import { ContactsService } from './contacts/services/contacts.service';
 import { ContactsFilterPipe } from './contacts/pipes/contacts-filter.pipe';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { CreateContactactivateService } from './contacts/services/create-contact-can-deactivate-guard.service';
 
 const appRoutes: Routes = [
     //{ path: 'home', component: ContactsComponent },
     { path: 'home', component: HomeContactComponent },
     { path: 'contacts', component: ContactsComponent },
     { path: 'contacts/:Id', component: ContactsAddressEntryComponent },
-    { path: 'create', component: CreateContactComponent },
+    { path: 'create', component: CreateContactComponent, canDeactivate: [CreateContactactivateService] },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
@@ -38,9 +40,10 @@ const appRoutes: Routes = [
       RouterModule,
       FormsModule,
       HttpModule,
+      BsDatepickerModule.forRoot(),
       RouterModule.forRoot(appRoutes)
   ],
-  providers: [ContactsService],
+  providers: [CreateContactactivateService, ContactsService],
   //bootstrap: [ContactsComponent]
   bootstrap: [AppComponent]
 })

@@ -19,12 +19,14 @@ var contact_entry_component_1 = require("./contacts/components/components-entry/
 var contacts_create_component_1 = require("./contacts/components/components-entry-create/contacts-create.component");
 var contacts_service_1 = require("./contacts/services/contacts.service");
 var contacts_filter_pipe_1 = require("./contacts/pipes/contacts-filter.pipe");
+var datepicker_1 = require("ngx-bootstrap/datepicker");
+var create_contact_can_deactivate_guard_service_1 = require("./contacts/services/create-contact-can-deactivate-guard.service");
 var appRoutes = [
     //{ path: 'home', component: ContactsComponent },
     { path: 'home', component: contacts_home_component_1.HomeContactComponent },
     { path: 'contacts', component: contacts_component_1.ContactsComponent },
     { path: 'contacts/:Id', component: contact_entry_component_1.ContactsAddressEntryComponent },
-    { path: 'create', component: contacts_create_component_1.CreateContactComponent },
+    { path: 'create', component: contacts_create_component_1.CreateContactComponent, canDeactivate: [create_contact_can_deactivate_guard_service_1.CreateContactactivateService] },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: pageNotFound_component_1.PageNotFoundComponent }
 ];
@@ -49,9 +51,10 @@ AppModule = __decorate([
             router_1.RouterModule,
             forms_1.FormsModule,
             http_1.HttpModule,
+            datepicker_1.BsDatepickerModule.forRoot(),
             router_1.RouterModule.forRoot(appRoutes)
         ],
-        providers: [contacts_service_1.ContactsService],
+        providers: [create_contact_can_deactivate_guard_service_1.CreateContactactivateService, contacts_service_1.ContactsService],
         //bootstrap: [ContactsComponent]
         bootstrap: [app_component_1.AppComponent]
     })

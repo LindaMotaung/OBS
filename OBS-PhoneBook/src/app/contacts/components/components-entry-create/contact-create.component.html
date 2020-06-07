@@ -1,10 +1,55 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
+﻿<form #vehicleForm="ngForm" ngNativeValidate (ngSubmit)="saveContacts(contactsForm);">
+    <div class='container'>
+        <div class='panel panel-primary'>
+            <div class='panel-heading'>
+                <h3 class='panel-title'>Create Contact</h3>
+            </div>
 
-</body>
-</html>
+            <div class='panel-body'>
+
+                <div class='form-group' [class.has-error]='contactsFirstNameControl.invalid && contactsFirstNameControl.touched'
+                     [class.has-success]='contactsFirstNameControl.valid'>
+                    <label for='FirstName'>First Name</label>
+                    <input class='form-control' required name="cFirstName" [(ngModel)]="FirstName" id='FirstName' type='text' #contactsFirstNameControl='ngModel'>
+                    <span class='help-block' *ngIf='contactsFirstNameControl.invalid && contactsFirstNameControl.touched'>
+                        First Name is required
+                    </span>
+                </div>
+
+                <div class='form-group'>
+                    <label for='Surname'>Surname</label>
+                    <input class='form-control' name="cSurname" [(ngModel)]="Surname" id='Surname' type='text'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='Tel'>Tel</label>
+                    <input class='form-control' name="cTel" [(ngModel)]="Tel" id='Tel' type='text'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='Cell'>Cell</label>
+                    <input class='form-control' name="cCell" [(ngModel)]="Cell" id='Cell' type='text'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='Email'>Email</label>
+                    <input class='form-control' name="cEmail" [(ngModel)]="Email" id='Email' type='text'>
+                </div>
+
+                <div class="row">
+                    <div class='form-group col-md-5'>
+                        <label for='dateSold'>Updated Date</label>
+                        <input class='form-control' name="cUpdatedDate" [(ngModel)]="UpdateDate" id='UpdateDate' bsDatepicker type='text' [bsConfig]="datePickerColor">
+                    </div>
+                </div>
+
+                <div class='panel-footer'>
+                    <button type="submit" class="btn btn-primary" [disabled]="contactsForm.invalid">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+{{contactsForm.value | json}}

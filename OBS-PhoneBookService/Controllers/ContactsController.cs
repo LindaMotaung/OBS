@@ -28,5 +28,11 @@ namespace OBS_PhoneBookService.Controllers
                 return result;
             }
         }
+
+        public void Update(int id) { }
+
+        public void Create() { }
+
+        public void Delete(int id) { }
     }
 }

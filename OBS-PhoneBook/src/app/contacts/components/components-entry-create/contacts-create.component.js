@@ -7,28 +7,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-//import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
-//import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+var forms_1 = require("@angular/forms");
 var CreateContactComponent = (function () {
     function CreateContactComponent() {
+        this.createContactForm = forms_1.NgForm;
+        this.datePickerColor = Object.assign({}, {
+            containerClass: "theme-dark-blue",
+            showWeekNumbers: false,
+            dateInputFormat: "YYY/MM/DD"
+        });
     }
-    //  datePickerColor: Partial<BsDatepickerConfig>;
-    //constructor() {
-    //    this.datePickerColor = Object.assign({},
-    //        {
-    //            containerClass: "theme-dark-blue",
-    //            showWeekNumbers: false,
-    //            dateInputFormat: "DD/MM/YYYY"
-    //        });
-    //}
     CreateContactComponent.prototype.ngOnInit = function () {
     };
     CreateContactComponent.prototype.saveContacts = function (contactsForm) {
-        // console.log(vehicleForm.value);
+        // console.log(contactsForm.value);
         console.log(contactsForm);
     };
     return CreateContactComponent;
 }());
+__decorate([
+    core_1.ViewChild("contactsForm")
+], CreateContactComponent.prototype, "createContactForm", void 0);
 CreateContactComponent = __decorate([
     core_1.Component({
         selector: 'my-contact-create',
