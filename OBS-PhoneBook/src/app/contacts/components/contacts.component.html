@@ -1,17 +1,19 @@
 ﻿<br />
 <table>
-    <tr>
-        <td><b>Contact ID</b></td>
-        <td><b>First Name</b></td>
-        <td><b>Surname</b></td>
-        <td><b>Tel</b></td>
-        <td><b>Cell</b></td>
-        <td><b>Email</b></td>
-        <td><b>Updated Date</b></td>
-    </tr>
-    <tbody>
+    <thead>
+        <tr>
+            <th>Contact ID</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Tel</th>
+            <th>Cell</th>
+            <th>Email</th>
+            <th>Updated Date</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="contacts">
         <tr *ngFor="let contactIndex of contacts">
-            <td><a [routerLink]="['/contacts', contactIndex.Id]">{{contactIndex.ID}}  </a></td>
+            <td><a [routerLink]="['/contacts', contactIndex.Id]">{{contactIndex.ID}}</a></td>
             <td>{{contactIndex.FirstName}}</td>
             <td>{{contactIndex.Surname}}</td>
             <td>{{contactIndex.Tel}}</td>
@@ -19,7 +21,12 @@
             <td>{{contactIndex.Email}}</td>
             <td>{{contactIndex.UpdatedDate}}</td>
         </tr>
-        <tr *ngIf="!contacts || contacts.length==0">
+        <tr *ngIf="!contacts">
+            <td colspan="7">
+               {{statusMessage}}
+            </td>
+        </tr>
+        <tr *ngIf="!contacts && contacts.length==0">
             <td colspan="7">No contact data to display</td>
         </tr>
     </tbody>

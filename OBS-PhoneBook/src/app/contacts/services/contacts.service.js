@@ -7,18 +7,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
 var ContactsService = (function () {
     function ContactsService(_http) {
         this._http = _http;
     }
     ContactsService.prototype.getContacts = function () {
         return this._http.get("http://localhost:52897/api/contacts")
-            .map(function (response) { return response.json(); });
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
     };
     ContactsService.prototype.getContactById = function (Id) {
         return this._http.get("http://localhost:52897/api/contacts/" + Id)
-            .map(function (response) { return response.json(); });
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    ContactsService.prototype.handleError = function (error) {
+        console.error(error);
+        return Observable_1.Observable.throw(error);
     };
     return ContactsService;
 }());

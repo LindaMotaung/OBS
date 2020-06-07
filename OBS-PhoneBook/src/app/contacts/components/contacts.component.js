@@ -10,19 +10,22 @@ var core_1 = require("@angular/core");
 var ContactsComponent = (function () {
     function ContactsComponent(_contactService) {
         this._contactService = _contactService;
+        this.statusMessage = 'Loading data. Please wait...';
     }
     ContactsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._contactService.getContacts()
-            .subscribe(function (x) { return _this.contacts = x; });
+            .subscribe(function (contactData) { return _this.contacts = contactData; }, function (error) {
+            _this.statusMessage = 'Problem with the API Service. Please try again after a few moments';
+        });
     };
     return ContactsComponent;
 }());
 ContactsComponent = __decorate([
     core_1.Component({
         selector: 'contacts-root',
-        templateUrl: './contacts.component.html'
-        //styleUrls: ['./contacts.component.css']
+        templateUrl: './contacts.component.html',
+        styleUrls: ['./contacts.component.css']
     })
 ], ContactsComponent);
 exports.ContactsComponent = ContactsComponent;
