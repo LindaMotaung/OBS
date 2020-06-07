@@ -9,8 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var CreateContactComponent = (function () {
-    function CreateContactComponent() {
+    function CreateContactComponent(_router) {
+        this._router = _router;
         this.createContactForm = forms_1.NgForm;
+        this.emailPattern = "[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}";
         this.datePickerColor = Object.assign({}, {
             containerClass: "theme-dark-blue",
             showWeekNumbers: false,
@@ -21,7 +23,10 @@ var CreateContactComponent = (function () {
     };
     CreateContactComponent.prototype.saveContacts = function (contactsForm) {
         // console.log(contactsForm.value);
-        console.log(contactsForm);
+        console.log(contactsForm.value);
+    };
+    CreateContactComponent.prototype.backToContactsButtonClick = function () {
+        this._router.navigate(['/contacts']);
     };
     return CreateContactComponent;
 }());

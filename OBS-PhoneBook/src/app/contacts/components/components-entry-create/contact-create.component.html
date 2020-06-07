@@ -1,4 +1,4 @@
-﻿<form #vehicleForm="ngForm" ngNativeValidate (ngSubmit)="saveContacts(contactsForm);">
+﻿<form #contactsForm="ngForm" ngNativeValidate (ngSubmit)="saveContacts(contactsForm);">
     <div class='container'>
         <div class='panel panel-primary'>
             <div class='panel-heading'>
@@ -8,10 +8,10 @@
             <div class='panel-body'>
 
                 <div class='form-group' [class.has-error]='contactsFirstNameControl.invalid && contactsFirstNameControl.touched'
-                     [class.has-success]='contactsFirstNameControl.valid'>
+        [class.has-success]='contactsFirstNameControl.valid'>
                     <label for='FirstName'>First Name</label>
                     <input class='form-control' required name="cFirstName" [(ngModel)]="FirstName" id='FirstName' type='text' #contactsFirstNameControl='ngModel'>
-                    <span class='help-block' *ngIf='contactsFirstNameControl.invalid && contactsFirstNameControl.touched'>
+                    <span class='help-block'>
                         First Name is required
                     </span>
                 </div>
@@ -33,23 +33,31 @@
 
                 <div class='form-group'>
                     <label for='Email'>Email</label>
-                    <input class='form-control' name="cEmail" [(ngModel)]="Email" id='Email' type='text'>
+                    <input class='form-control' name="cEmail" [(ngModel)]="Email" id='Email' type='text' pattern="emailPattern">
                 </div>
 
                 <div class="row">
                     <div class='form-group col-md-5'>
                         <label for='dateSold'>Updated Date</label>
-                        <input class='form-control' name="cUpdatedDate" [(ngModel)]="UpdateDate" id='UpdateDate' bsDatepicker type='text' [bsConfig]="datePickerColor">
+                        <!--<input class='form-control' name="cUpdatedDate" [(ngModel)]="UpdateDate" id='UpdateDate' bsDatepicker type='text' [bsConfig]="datePickerColor">-->
+                        <input class='form-control' name="cUpdatedDate" [(ngModel)]="UpdateDate" id='UpdateDate' type='date' placeholder="YYYY-MM-DD">
                     </div>
                 </div>
 
                 <div class='panel-footer'>
-                    <button type="submit" class="btn btn-primary" [disabled]="contactsForm.invalid">Save</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
 
             </div>
         </div>
+        <div style="margin-top: 5px">
+            <input type="button"
+                   class="btn btn-primary"
+                   value="Back to Contacts"
+                   (click)="backToContactsButtonClick()" />
+        </div>
     </div>
 </form>
 
-{{contactsForm.value | json}}
+
+<!--{{contactsForm.value | json}}-->
