@@ -21,7 +21,7 @@ var ContactsAddressEntryComponent = (function () {
     ContactsAddressEntryComponent.prototype.ngOnInit = function () {
         var _this = this;
         var contactId = this._activatedRoute.snapshot.params['Id'];
-        this._contactsService.getContactById(contactId)
+        this.subscription = this._contactsService.getContactById(contactId)
             .retryWhen(function (err) {
             //err.delay(1000)
             return err.scan(function (retryCount) {
@@ -51,6 +51,10 @@ var ContactsAddressEntryComponent = (function () {
     };
     ContactsAddressEntryComponent.prototype.onBackButtonClick = function () {
         this._router.navigate(['/contacts']);
+    };
+    ContactsAddressEntryComponent.prototype.onCancelButtonClick = function () {
+        this.statusMessage = "Request Cancelled";
+        this.subscription.unsubscribe();
     };
     return ContactsAddressEntryComponent;
 }());

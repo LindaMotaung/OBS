@@ -1,4 +1,8 @@
-﻿<br />
+﻿<div class="form-group">
+    <input type="text" class="form-control" placeholder="Search by either First Name, Surname or Telephone number"
+           style="width:500px" />
+</div>
+<br />
 <table>
     <thead>
         <tr>
@@ -31,5 +35,11 @@
         </tr>
     </tbody>
 </table>
+<div style="margin-top: 5px">
+    <input type="button"
+           class="btn btn-primary"
+           value="Create New Contact"
+           (click)="createNewContactButtonClick()" />
+</div>
 
 

@@ -7,6 +7,7 @@ import 'rxjs/add/operator/retry';
 import 'rxjs/add/operator/retrywhen';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/scan';
+import { ISubscription } from 'rxjs/Subscription'
 
 @Component({
     selector: 'my-contact',
@@ -16,6 +17,7 @@ import 'rxjs/add/operator/scan';
 export class ContactsAddressEntryComponent implements OnInit {
     contact: IContact;
     statusMessage: string = 'Loading data. Please wait...';
+    subscription: ISubscription;
 
     constructor(private _contactsService: ContactsService,
         private _activatedRoute: ActivatedRoute,
@@ -23,7 +25,7 @@ export class ContactsAddressEntryComponent implements OnInit {
 
     ngOnInit() {
         let contactId: number = this._activatedRoute.snapshot.params['Id'];
-        this._contactsService.getContactById(contactId)
+        this.subscription = this._contactsService.getContactById(contactId)
             .retryWhen((err) => {
                 //err.delay(1000)
                 return err.scan((retryCount) => {
@@ -55,5 +57,10 @@ export class ContactsAddressEntryComponent implements OnInit {
 
     onBackButtonClick(): void {
         this._router.navigate(['/contacts']);
+    }
+
+    onCancelButtonClick(): void {
+        this.statusMessage = "Request Cancelled";
+        this.subscription.unsubscribe();
     }
 }

@@ -133,6 +133,7 @@
     <Content Include="angular.json" />
     <Content Include="package.json" />
     <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\contacts\components\components-entry-create\contact-create.component.css" />
     <Content Include="src\app\contacts\components\components-entry\contact-entry.component.html" />
     <Content Include="src\app\contacts\components\contacts.component.html" />
     <Content Include="src\assets\.gitkeep" />
@@ -233,6 +234,7 @@
     <Content Include="node_modules\bootstrap\LICENSE" />
     <Content Include="node_modules\bootstrap\package.json" />
     <Content Include="node_modules\bootstrap\README.md" />
+    <Content Include="src\app\contacts\components\components-entry-create\contact-create.component.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -255,6 +257,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\contacts\components\components-entry-create\contacts-create.component.ts" />
     <TypeScriptCompile Include="src\app\contacts\components\components-entry\contact-entry.component.ts" />
     <TypeScriptCompile Include="src\app\contacts\components\contacts.component.ts" />
     <TypeScriptCompile Include="src\app\contacts\exceptions\pageNotFound.component.ts" />
