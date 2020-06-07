@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
     selector: 'my-contact',
     templateUrl: './contact-entry.component.html',
-    styleUrls: ['./contact-entry.component.scss']
+    styleUrls: ['./contact-entry.component.css']
 })
 export class ContactsAddressEntryComponent implements OnInit {
     contact: IContact;

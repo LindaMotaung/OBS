@@ -9,12 +9,12 @@ export class ContactsService {
     constructor(private _http: Http) { }
 
     getContacts(): Observable<IContact[]> {
-        return this._http.get("http://localhost:49923/api/contacts")
+        return this._http.get("http://localhost:52897/api/contacts")
             .map((response: Response) => <IContact[]>response.json())
     }
 
     getContactById(Id: number): Observable<IContact> {
-        return this._http.get("http://localhost:49923/api/contacts/" + Id)
+        return this._http.get("http://localhost:52897/api/contacts/" + Id)
             .map((response: Response) => <IContact>response.json());
     }
 }

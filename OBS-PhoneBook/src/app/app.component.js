@@ -7,22 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-require("rxjs/add/operator/map");
-var ContactsService = (function () {
-    function ContactsService(_http) {
-        this._http = _http;
+var AppComponent = (function () {
+    function AppComponent() {
+        this.title = 'app';
     }
-    ContactsService.prototype.getContacts = function () {
-        return this._http.get("http://localhost:52897/api/contacts")
-            .map(function (response) { return response.json(); });
-    };
-    ContactsService.prototype.getContactById = function (Id) {
-        return this._http.get("http://localhost:52897/api/contacts/" + Id)
-            .map(function (response) { return response.json(); });
-    };
-    return ContactsService;
+    return AppComponent;
 }());
-ContactsService = __decorate([
-    core_1.Injectable()
-], ContactsService);
-exports.ContactsService = ContactsService;
+AppComponent = __decorate([
+    core_1.Component({
+        selector: 'app-root',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
+    })
+], AppComponent);
+exports.AppComponent = AppComponent;

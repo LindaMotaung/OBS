@@ -15,6 +15,7 @@ var app_component_1 = require("./app.component");
 var PageNotFoundComponent_1 = require("./contacts/exceptions/PageNotFoundComponent");
 var contacts_component_1 = require("./contacts/components/contacts.component");
 var contact_entry_component_1 = require("./contacts/components/components-entry/contact-entry.component");
+var contacts_service_1 = require("./contacts/services/contacts.service");
 var appRoutes = [
     { path: 'home', component: contacts_component_1.ContactsComponent },
     { path: 'contacts', component: contacts_component_1.ContactsComponent },
@@ -39,10 +40,11 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             router_1.RouterModule,
             forms_1.FormsModule,
-            http_1.HttpModule
+            http_1.HttpModule,
+            router_1.RouterModule.forRoot(appRoutes)
         ],
-        providers: [],
-        bootstrap: [app_component_1.AppComponent]
+        providers: [contacts_service_1.ContactsService],
+        bootstrap: [contacts_component_1.ContactsComponent]
     })
 ], AppModule);
 exports.AppModule = AppModule;

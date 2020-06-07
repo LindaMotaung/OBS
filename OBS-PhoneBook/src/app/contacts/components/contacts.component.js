@@ -14,14 +14,15 @@ var ContactsComponent = (function () {
     ContactsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._contactService.getContacts()
-            .subscribe(function (contactData) { return _this.contacts = contactData; });
+            .subscribe(function (x) { return _this.contacts = x; });
     };
     return ContactsComponent;
 }());
 ContactsComponent = __decorate([
     core_1.Component({
-        templateUrl: './contacts.component.html',
-        styleUrls: ['./contacts.component.scss']
+        selector: 'contacts-root',
+        templateUrl: './contacts.component.html'
+        //styleUrls: ['./contacts.component.css']
     })
 ], ContactsComponent);
 exports.ContactsComponent = ContactsComponent;

@@ -3,8 +3,9 @@ import { ContactsService } from '../services/contacts.service';
 import { IContact } from '../interfaces/contacts.interface';
 
 @Component({
-    templateUrl: './contacts.component.html',
-    styleUrls: ['./contacts.component.scss']
+    selector: 'contacts-root',
+    templateUrl: './contacts.component.html'
+    //styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
 
@@ -14,6 +15,7 @@ export class ContactsComponent implements OnInit {
 
     ngOnInit() {
         this._contactService.getContacts()
-            .subscribe(contactData => this.contacts = contactData);
+            //.subscribe(contactData => this.contacts = contactData);
+            .subscribe(x => this.contacts = x);
     }
 }

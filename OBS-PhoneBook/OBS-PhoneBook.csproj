@@ -110,8 +110,8 @@
     <Content Include="src\tsconfig.spec.json" />
     <Content Include="src\tslint.json" />
     <Content Include="tslint.json" />
-    <Content Include="src\app\contacts\components\components-entry\contact-entry.component.scss" />
-    <Content Include="src\app\contacts\components\contacts.component.scss" />
+    <Content Include="src\app\contacts\components\components-entry\contact-entry.component.css" />
+    <Content Include="src\app\contacts\components\contacts.component.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

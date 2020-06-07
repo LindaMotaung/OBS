@@ -37,7 +37,7 @@ ContactsAddressEntryComponent = __decorate([
     core_1.Component({
         selector: 'my-contact',
         templateUrl: './contact-entry.component.html',
-        styleUrls: ['./contact-entry.component.scss']
+        styleUrls: ['./contact-entry.component.css']
     })
 ], ContactsAddressEntryComponent);
 exports.ContactsAddressEntryComponent = ContactsAddressEntryComponent;

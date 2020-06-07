@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './contacts/exceptions/PageNotFoundComponent';
 import { ContactsComponent } from './contacts/components/contacts.component';
 import { ContactsAddressEntryComponent } from './contacts/components/components-entry/contact-entry.component';
+import { ContactsService } from './contacts/services/contacts.service';
 
 const appRoutes: Routes = [
     { path: 'home', component: ContactsComponent },
@@ -28,9 +29,10 @@ const appRoutes: Routes = [
       BrowserModule,
       RouterModule,
       FormsModule,
-      HttpModule
+      HttpModule,
+      RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ContactsService],
+  bootstrap: [ContactsComponent]
 })
 export class AppModule { }
