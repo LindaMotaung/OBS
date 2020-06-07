@@ -11,6 +11,7 @@ import { ContactsComponent } from './contacts/components/contacts.component';
 import { ContactsAddressEntryComponent } from './contacts/components/components-entry/contact-entry.component';
 import { CreateContactComponent } from './contacts/components/components-entry-create/contacts-create.component';
 import { ContactsService } from './contacts/services/contacts.service';
+import { ContactsFilterPipe } from './contacts/pipes/contacts-filter.pipe';
 
 const appRoutes: Routes = [
     //{ path: 'home', component: ContactsComponent },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
       ContactsComponent,
       ContactsAddressEntryComponent,
       CreateContactComponent,
+      ContactsFilterPipe,
       PageNotFoundComponent
   ],
   imports: [

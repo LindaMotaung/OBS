@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
-
+    searchTerm: string;
     contacts: IContact[];
     statusMessage: string = 'Loading data. Please wait...';
 

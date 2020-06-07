@@ -266,7 +266,9 @@
     <TypeScriptCompile Include="src\app\contacts\components\contacts.component.ts" />
     <TypeScriptCompile Include="src\app\contacts\exceptions\pageNotFound.component.ts" />
     <TypeScriptCompile Include="src\app\contacts\interfaces\contacts.interface.ts" />
+    <TypeScriptCompile Include="src\app\contacts\model\contacts.model.ts" />
     <TypeScriptCompile Include="src\app\contacts\services\contacts.service.ts" />
+    <TypeScriptCompile Include="src\app\contacts\pipes\contacts-filter.pipe.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />
@@ -276,9 +278,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\app\contacts\model\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

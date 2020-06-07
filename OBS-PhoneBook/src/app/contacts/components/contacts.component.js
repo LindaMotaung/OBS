@@ -8,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ContactsComponent = (function () {
-    function ContactsComponent(_contactService) {
+    function ContactsComponent(_contactService, _router) {
         this._contactService = _contactService;
+        this._router = _router;
         this.statusMessage = 'Loading data. Please wait...';
     }
     ContactsComponent.prototype.ngOnInit = function () {
@@ -18,6 +19,9 @@ var ContactsComponent = (function () {
             .subscribe(function (contactData) { return _this.contacts = contactData; }, function (error) {
             _this.statusMessage = 'Problem with the API Service. Please try again after a few moments';
         });
+    };
+    ContactsComponent.prototype.createNewContactButtonClick = function () {
+        this._router.navigate(['/create']);
     };
     return ContactsComponent;
 }());

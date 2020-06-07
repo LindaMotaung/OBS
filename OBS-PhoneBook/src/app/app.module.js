@@ -13,12 +13,15 @@ var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var pageNotFound_component_1 = require("./contacts/exceptions/pageNotFound.component");
+var contacts_home_component_1 = require("./contacts/components/component-home/contacts-home.component");
 var contacts_component_1 = require("./contacts/components/contacts.component");
 var contact_entry_component_1 = require("./contacts/components/components-entry/contact-entry.component");
 var contacts_create_component_1 = require("./contacts/components/components-entry-create/contacts-create.component");
 var contacts_service_1 = require("./contacts/services/contacts.service");
+var contacts_filter_pipe_1 = require("./contacts/pipes/contacts-filter.pipe");
 var appRoutes = [
-    { path: 'home', component: contacts_component_1.ContactsComponent },
+    //{ path: 'home', component: ContactsComponent },
+    { path: 'home', component: contacts_home_component_1.HomeContactComponent },
     { path: 'contacts', component: contacts_component_1.ContactsComponent },
     { path: 'contacts/:Id', component: contact_entry_component_1.ContactsAddressEntryComponent },
     { path: 'create', component: contacts_create_component_1.CreateContactComponent },
@@ -34,9 +37,11 @@ AppModule = __decorate([
     core_1.NgModule({
         declarations: [
             app_component_1.AppComponent,
+            contacts_home_component_1.HomeContactComponent,
             contacts_component_1.ContactsComponent,
             contact_entry_component_1.ContactsAddressEntryComponent,
             contacts_create_component_1.CreateContactComponent,
+            contacts_filter_pipe_1.ContactsFilterPipe,
             pageNotFound_component_1.PageNotFoundComponent
         ],
         imports: [

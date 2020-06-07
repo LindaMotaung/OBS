@@ -7,10 +7,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+//import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
+//import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 var CreateContactComponent = (function () {
     function CreateContactComponent() {
     }
+    //  datePickerColor: Partial<BsDatepickerConfig>;
+    //constructor() {
+    //    this.datePickerColor = Object.assign({},
+    //        {
+    //            containerClass: "theme-dark-blue",
+    //            showWeekNumbers: false,
+    //            dateInputFormat: "DD/MM/YYYY"
+    //        });
+    //}
     CreateContactComponent.prototype.ngOnInit = function () {
+    };
+    CreateContactComponent.prototype.saveContacts = function (contactsForm) {
+        // console.log(vehicleForm.value);
+        console.log(contactsForm);
     };
     return CreateContactComponent;
 }());

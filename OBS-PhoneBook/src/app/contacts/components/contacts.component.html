@@ -1,6 +1,6 @@
 ﻿<div class="form-group">
     <input type="text" class="form-control" placeholder="Search by either First Name, Surname or Telephone number"
-           style="width:500px" />
+           style="width:500px" [(ngModel)]="searchTerm"/>
 </div>
 <br />
 <table>
@@ -13,10 +13,11 @@
             <th>Cell</th>
             <th>Email</th>
             <th>Updated Date</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody *ngIf="contacts">
-        <tr *ngFor="let contactIndex of contacts">
+        <tr *ngFor="let contactIndex of contacts | contactsFilter:searchTerm">
             <td><a [routerLink]="['/contacts', contactIndex.ID]">{{contactIndex.ID}}</a></td>
             <td>{{contactIndex.FirstName}}</td>
             <td>{{contactIndex.Surname}}</td>
@@ -24,6 +25,11 @@
             <td>{{contactIndex.Cell}}</td>
             <td>{{contactIndex.Email}}</td>
             <td>{{contactIndex.UpdatedDate}}</td>
+            <td>
+                <button class="btn btn-primary" [routerLink]="['/contacts', contactIndex.ID]">View</button>&nbsp;
+                <button class="btn btn-primary" [routerLink]="['/contacts', contactIndex.ID]">Update</button>&nbsp;
+                <button class="btn btn-danger" [routerLink]="['/contacts', contactIndex.ID]">Delete</button>
+            </td>
         </tr>
         <tr *ngIf="!contacts">
             <td colspan="7">

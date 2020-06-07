@@ -21,7 +21,11 @@ namespace OBS_PhoneBookService.Controllers
         {
             using (var db = new OBSEntities())
             {
-                return db.Contacts.FirstOrDefault(x => x.ID == id);
+                var result = db.Contacts.FirstOrDefault(x => x.ID == id);
+                if (result == null)
+                    throw new NullReferenceException("Requested Contact ID is Invalid");
+
+                return result;
             }
         }
     }
