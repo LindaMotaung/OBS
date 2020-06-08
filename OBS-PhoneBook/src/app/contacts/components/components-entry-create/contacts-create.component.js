@@ -31,11 +31,12 @@ var CreateContactComponent = (function () {
     CreateContactComponent.prototype.backToContactsButtonClick = function () {
         this._router.navigate(['/contacts']);
     };
-    CreateContactComponent.prototype.save = function () {
+    CreateContactComponent.prototype.saveContactToDB = function (contactsForm) {
         var _this = this;
-        this.distributorService.create(this.model).then(function (user) {
+        console.log(contactsForm.value);
+        this._contactsService.createContact(this.model).then(function (user) {
             console.log(user);
-            _this.goBack();
+            _this.backToContactsButtonClick();
         }, function (error) {
             console.log(error);
             _this.error = [];

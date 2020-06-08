@@ -14,6 +14,7 @@ using OBS_PhoneBookService.Models.OutViewModels;
 
 namespace OBS_PhoneBookService.Controllers
 {
+    [RoutePrefix("api/contacts")]
     public class ContactsController : ApiController
     {
         private readonly OBSEntities db = new OBSEntities();
@@ -38,6 +39,8 @@ namespace OBS_PhoneBookService.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("create")]
         public async Task<IHttpActionResult> Create(ContactsViewModel model)
         {
             if (ModelState.IsValid)
@@ -60,6 +63,8 @@ namespace OBS_PhoneBookService.Controllers
             return BadRequest(ModelState);
         }
 
+        [HttpPost]
+        [Route("update")]
         public async Task<IHttpActionResult> Update(ContactsViewModel model)
         {
             if (ModelState.IsValid)
@@ -84,6 +89,8 @@ namespace OBS_PhoneBookService.Controllers
             return BadRequest(ModelState);
         }
 
+        [HttpPost]
+        [Route("delete")]
         public async Task<IHttpActionResult> Delete(ContactsViewModel model)
         {
             if (ModelState.IsValid)

@@ -4,6 +4,7 @@ import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 import { Router } from '@angular/router';
 import { Contact, CreateContactModel} from '../../model/contacts.model';
 import { ContactsService } from '../../services/contacts.service';
+import { Message } from 'primeng/components/common/api';
 
 @Component({
     selector: 'my-contact-create',
@@ -16,6 +17,7 @@ export class CreateContactComponent implements OnInit {
     emailPattern: string = "[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}";
     datePickerColor: Partial<BsDatepickerConfig>;
     model: CreateContactModel;
+    error: Message[];
 
     constructor(private _router: Router,
         private _contactsService: ContactsService) {
@@ -40,11 +42,12 @@ export class CreateContactComponent implements OnInit {
         this._router.navigate(['/contacts']);
     }
 
-    save(): void {
-        this._contactsService.create(this.model).then(
+    saveContactToDB(contactsForm: NgForm): void {
+        console.log(contactsForm.value);
+        this._contactsService.createContact(this.model).then(
             user => {
                 console.log(user);
-                this.goBack();
+                this.backToContactsButtonClick();
             },
             error => {
                 console.log(error);

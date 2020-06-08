@@ -1,4 +1,4 @@
-﻿<form #contactsForm="ngForm" ngNativeValidate (ngSubmit)="saveContacts(contactsForm);">
+﻿<form #contactsForm="ngForm" (ngSubmit)="saveContactToDB(contactsForm);">
     <div class='container'>
         <div class='panel panel-primary'>
             <div class='panel-heading'>
@@ -8,7 +8,7 @@
             <div class='panel-body'>
 
                 <div class='form-group' [class.has-error]='contactsFirstNameControl.invalid && contactsFirstNameControl.touched'
-        [class.has-success]='contactsFirstNameControl.valid'>
+                     [class.has-success]='contactsFirstNameControl.valid'>
                     <label for='FirstName'>First Name</label>
                     <input class='form-control' required name="cFirstName" [(ngModel)]="FirstName" id='FirstName' type='text' #contactsFirstNameControl='ngModel'>
                     <span class='help-block'>
@@ -36,15 +36,8 @@
                     <input class='form-control' name="cEmail" [(ngModel)]="Email" id='Email' type='text' pattern="emailPattern">
                 </div>
 
-                <div class="row">
-                    <div class='form-group col-md-5'>
-                        <label for='dateSold'>Updated Date</label>
-                        <!--<input class='form-control' name="cUpdatedDate" [(ngModel)]="UpdateDate" id='UpdateDate' bsDatepicker type='text' [bsConfig]="datePickerColor">-->
-                        <input class='form-control' name="cUpdatedDate" [(ngModel)]="UpdateDate" id='UpdateDate' type='date' placeholder="YYYY-MM-DD">
-                    </div>
-                </div>
-
                 <div class='panel-footer'>
+                    <!--<button type="submit" class="btn btn-primary" (click)="saveContact()">Save</button>-->
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
 
@@ -58,6 +51,3 @@
         </div>
     </div>
 </form>
-
-
-<!--{{contactsForm.value | json}}-->
