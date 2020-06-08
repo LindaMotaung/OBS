@@ -26,6 +26,24 @@ var ContactsService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    ContactsService.prototype.createContact = function (contact) {
+        return this._http.post("http://localhost:52897/api/create", JSON.stringify(contact))
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    ContactsService.prototype.updateContact = function (contact) {
+        return this._http.post("http://localhost:52897/api/update", JSON.stringify(contact))
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    ContactsService.prototype.deleteContact = function (contact) {
+        return this._http.post("http://localhost:52897/api/delete", JSON.stringify(contact))
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     ContactsService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error);

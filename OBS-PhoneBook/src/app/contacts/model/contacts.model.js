@@ -6,3 +6,9 @@ var Contact = (function () {
     return Contact;
 }());
 exports.Contact = Contact;
+var CreateContactModel = (function () {
+    function CreateContactModel() {
+    }
+    return CreateContactModel;
+}());
+exports.CreateContactModel = CreateContactModel;

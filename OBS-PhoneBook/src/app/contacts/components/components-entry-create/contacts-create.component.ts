@@ -2,6 +2,8 @@
 import { NgForm } from "@angular/forms";
 import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 import { Router } from '@angular/router';
+import { Contact, CreateContactModel} from '../../model/contacts.model';
+import { ContactsService } from '../../services/contacts.service';
 
 @Component({
     selector: 'my-contact-create',
@@ -10,10 +12,13 @@ import { Router } from '@angular/router';
 })
 export class CreateContactComponent implements OnInit {
     @ViewChild("contactsForm") public createContactForm NgForm;
+
     emailPattern: string = "[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}";
     datePickerColor: Partial<BsDatepickerConfig>;
+    model: CreateContactModel;
 
-    constructor(private _router: Router) {
+    constructor(private _router: Router,
+        private _contactsService: ContactsService) {
         this.datePickerColor = (<any>Object).assign({},
             {
                 containerClass: "theme-dark-blue",
@@ -23,7 +28,7 @@ export class CreateContactComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.model = new CreateContactModel();
     }
 
     saveContacts(contactsForm: NgForm): void {
@@ -33,5 +38,19 @@ export class CreateContactComponent implements OnInit {
 
     backToContactsButtonClick(): void {
         this._router.navigate(['/contacts']);
+    }
+
+    save(): void {
+        this._contactsService.create(this.model).then(
+            user => {
+                console.log(user);
+                this.goBack();
+            },
+            error => {
+                console.log(error);
+                this.error = [];
+                this.error.push({ severity: 'error', summary: 'Error', detail: error });
+            }
+        );
     }
 }

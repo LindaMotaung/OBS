@@ -8,12 +8,12 @@ export class CreateContactactivateService implements CanDeactivate<CreateContact
     constructor() { }
 
 
-    //canDeactivate(component: CreateContactComponent): boolean {
+    canDeactivate(component: CreateContactComponent): boolean {
     //    if (component.createContactForm.dirty) {
     //        return confirm("Are you sure you want to discard your changes?");
     //    }
     //    else {
     //        return true;
     //    }
-    //}
+    }
 }

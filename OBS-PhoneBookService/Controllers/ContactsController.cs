@@ -38,8 +38,6 @@ namespace OBS_PhoneBookService.Controllers
             }
         }
 
-        public void Update(int id) { }
-
         public async Task<IHttpActionResult> Create(ContactsViewModel model)
         {
             if (ModelState.IsValid)
@@ -84,6 +82,21 @@ namespace OBS_PhoneBookService.Controllers
                 return Ok(new ContactsDto(contact));
             }
             return BadRequest(ModelState);
+        }
+
+        public async Task<IHttpActionResult> Delete(ContactsViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var contact = new Contact { ID = model.Id };
+                db.Contacts.Attach(contact);
+                db.Contacts.Remove(contact);
+                await db.SaveChangesAsync();
+
+                return Ok(new ContactsDto(contact));
+            }
+
+          return BadRequest(ModelState);
         }
     }
 }
