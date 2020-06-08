@@ -59,3 +59,5 @@ C:\OBS-PhoneBookAddress\OBS\Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\OBS-PhoneBookAddress\OBS\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
 C:\OBS-PhoneBookAddress\OBS\Tests\obj\Debug\Tests.dll
 C:\OBS-PhoneBookAddress\OBS\Tests\obj\Debug\Tests.pdb
+C:\OBS-PhoneBookAddress\OBS\Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\OBS-PhoneBookAddress\OBS\Tests\bin\Debug\EntityFramework.SqlServer.xml
