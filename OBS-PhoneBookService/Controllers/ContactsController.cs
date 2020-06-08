@@ -4,14 +4,23 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Http.Description;
+using Microsoft.AspNet.Identity;
+using OBS_PhoneBookService.Models.OutViewModels;
 
 namespace OBS_PhoneBookService.Controllers
 {
     public class ContactsController : ApiController
     {
+        private readonly OBSEntities db = new OBSEntities();
+
         public IEnumerable<Contact> Get()
         {
-            using (var db = new OBSEntities())
+            using (db)
             {
                 return db.Contacts.ToList();
             }
@@ -19,7 +28,7 @@ namespace OBS_PhoneBookService.Controllers
 
         public Contact Get(int id)
         {
-            using (var db = new OBSEntities())
+            using (db)
             {
                 var result = db.Contacts.FirstOrDefault(x => x.ID == id);
                 if (result == null)
@@ -31,11 +40,50 @@ namespace OBS_PhoneBookService.Controllers
 
         public void Update(int id) { }
 
-        public void Create()
+        public async Task<IHttpActionResult> Create(ContactsViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                var contact = new Contact
+                {
+                    FirstName = model.FirstName,
+                    Surname = model.Surname,
+                    Tel = model.Tel,
+                    Cell = model.Cell,
+                    Email = model.Email,
+                    UpdatedDate = DateTime.UtcNow
+                };
 
+                db.Contacts.Add(contact);
+                await db.SaveChangesAsync();
+
+                return Ok(new ContactsDto(contact));
+            }
+            return BadRequest(ModelState);
         }
 
-        public void Delete(int id) { }
+        public async Task<IHttpActionResult> Update(ContactsViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var contact = await db.Contacts.FindAsync(model.Id);
+                if (contact == null)
+                {
+                    throw new NullReferenceException("Requested Contact ID is Invalid");
+                }
+
+                contact.FirstName = model.FirstName;
+                contact.Surname = model.Surname;
+                contact.Tel = model.Tel;
+                contact.Cell = model.Cell;
+                contact.Email = model.Email;
+                contact.UpdatedDate = DateTime.UtcNow;
+
+                await db.SaveChangesAsync();
+
+                return Ok(new ContactsDto(contact));
+            }
+            return BadRequest(ModelState);
+        }
     }
 }

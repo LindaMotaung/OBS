@@ -1,0 +1,4 @@
+Please run the SQL scripts to your local machine if you wish to initialize the application with some test data
+
+1. [Your file path]:\OBS-PhoneBookAddress\SQL Scripts\ScriptSetup.sql
+2. Please also check for which available port IIS Express runs the API service in then just update that with the correct port for your environment in the contacts.service.ts file 
